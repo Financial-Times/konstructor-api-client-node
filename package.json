@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "description": "Make change requests in Salesforce",
   "license": "MIT",
-  "main": "lib/ft-changerequest.js",
+  "main": "lib/konstructor-api-client.js",
   "bin": {
-      "ft-changerequest": "bin/ft-changerequest.js",
-      "ftcr": "bin/ft-changerequest.js"
+    "ft-changerequest": "bin/ft-changerequest.js",
+    "ftcr": "bin/ft-changerequest.js"
   },
   "dependencies": {
     "chalk": "^1",
@@ -19,7 +19,8 @@
     "mocha": "^2",
     "mockery": "^1",
     "proclaim": "^3",
-    "sinon": "^1"
+    "sinon": "^1",
+    "sinon-as-promised": "^4"
   },
   "engines": {
     "node": ">=4"
