@@ -1,12 +1,11 @@
 {
-  "name": "ft-changerequest",
+  "name": "konstructor-api-client",
   "version": "0.0.0",
-  "description": "Make change requests in Salesforce",
+  "description": "Make Konstructor calls from the command-line and Node.js",
   "license": "MIT",
   "main": "lib/konstructor-api-client.js",
   "bin": {
-    "ft-changerequest": "bin/ft-changerequest.js",
-    "ftcr": "bin/ft-changerequest.js"
+    "konstructor": "bin/konstructor.js"
   },
   "dependencies": {
     "chalk": "^1",
