@@ -10,6 +10,7 @@
   "dependencies": {
     "chalk": "^1",
     "commander": "^2",
+    "node.extend": "^1",
     "request": "^2"
   },
   "devDependencies": {

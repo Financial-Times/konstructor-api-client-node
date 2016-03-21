@@ -68,14 +68,11 @@ program
 	)
 	.parse(process.argv);
 
-// TEMPORARY
-program.gateway = 'test';
-
 const apiClient = new KonstructorApiClient(program.gateway, program.apiKey);
 
 // Gather up the data
 const openData = {
-	ownerEmailAddress: program.ownerEmailAddress,
+	ownerEmailAddress: program.ownerEmail,
 	summaryOfChange: program.summary,
 	changeDescription: program.description,
 	reasonForChangeDetails: program.reason,
@@ -83,12 +80,12 @@ const openData = {
 	riskProfile: program.riskProfile,
 	environment: program.environment,
 	willThereBeAnOutage: program.outage,
-	resourceOne: program.ownerEmailAddress,
+	resourceOne: program.ownerEmail,
 	serviceIds: program.service,
 	notifyChannel: program.notifyChannel
 };
 const closeData = {
-	closedByEmailAddress: program.ownerEmailAddress,
+	closedByEmailAddress: program.ownerEmail,
 	closeCategory: program.closeCategory,
 	notifyChannel: program.notifyChannel
 };
