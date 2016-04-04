@@ -20,6 +20,11 @@ describe('lib/konstructor-api-client', () => {
 		assert.isFunction(KonstructorApiClient);
 	});
 
+	it('should have a `getEmailFromUsername` method', () => {
+		assert.isFunction(KonstructorApiClient.getEmailFromUsername);
+		assert.strictEqual(KonstructorApiClient.getEmailFromUsername, require('../../../lib/email-from-username'));
+	});
+
 	describe('new KonstructorApiClient(gateway, apiKey)', () => {
 		let instance;
 
