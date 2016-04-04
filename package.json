@@ -1,6 +1,6 @@
 {
   "name": "konstructor-api-client",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Make Konstructor calls from the command-line and Node.js",
   "license": "MIT",
   "main": "lib/konstructor-api-client.js",
