@@ -2,6 +2,7 @@
 
 const assert = require('proclaim');
 const mockery = require('mockery');
+const pkg = require('../../../package.json');
 const sinon = require('sinon');
 require('sinon-as-promised');
 
@@ -48,12 +49,18 @@ describe('lib/konstructor-api-client', () => {
 				assert.strictEqual(instance.gateway, 'konstructor');
 			});
 
+			it('should have a `userAgent` property', () => {
+				assert.isDefined(instance.userAgent);
+				assert.strictEqual(instance.userAgent, `konstructor-api-client-node/${pkg.version}`);
+			});
+
 			it('should have a `request` method', () => {
 				assert.isFunction(instance.request);
 			});
 
 			describe('.request(endpoint, options)', () => {
 				const mockHostname = 'http://mock-gateway';
+				const mockUserAgent = 'mock-user-agent';
 				let mockResponse;
 				let options;
 				let returnedPromise;
@@ -67,6 +74,7 @@ describe('lib/konstructor-api-client', () => {
 						method: 'MOCK'
 					};
 					instance.hostname = mockHostname;
+					instance.userAgent = mockUserAgent;
 					returnedPromise = instance.request('/foo/bar', options);
 				});
 
@@ -97,6 +105,16 @@ describe('lib/konstructor-api-client', () => {
 					it('should not send a Content-Type header', () => {
 						assert.isObject(request.firstCall.args[0].headers);
 						assert.isUndefined(request.firstCall.args[0].headers['Content-Type']);
+					});
+
+					it('should send an Accept header', () => {
+						assert.isObject(request.firstCall.args[0].headers);
+						assert.strictEqual(request.firstCall.args[0].headers['Accept'], 'application/json');
+					});
+
+					it('should send a User-Agent header equal to the `userAgent` property', () => {
+						assert.isObject(request.firstCall.args[0].headers);
+						assert.strictEqual(request.firstCall.args[0].headers['User-Agent'], mockUserAgent);
 					});
 
 					it('should request JSON', () => {
