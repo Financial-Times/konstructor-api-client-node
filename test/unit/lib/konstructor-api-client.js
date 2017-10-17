@@ -4,7 +4,6 @@ const assert = require('proclaim');
 const mockery = require('mockery');
 const pkg = require('../../../package.json');
 const sinon = require('sinon');
-require('sinon-as-promised');
 
 describe('lib/konstructor-api-client', () => {
 	let KonstructorApiClient;
@@ -137,10 +136,8 @@ describe('lib/konstructor-api-client', () => {
 
 					describe('.then()', () => {
 
-						beforeEach(done => {
-							returnedPromise.then(() => {
-								done();
-							}).catch(done);
+						beforeEach(() => {
+							return returnedPromise;
 						});
 
 						it('should send a Content-Type header of `application/x-www-form-urlencoded`', () => {
