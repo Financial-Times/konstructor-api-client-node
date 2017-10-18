@@ -129,7 +129,7 @@ describe('lib/konstructor-api-client', () => {
 				describe('when the request method is POST', () => {
 
 					beforeEach(() => {
-						request.reset();
+						request.resetHistory();
 						options.method = 'POST';
 						returnedPromise = instance.request('/foo/bar', options);
 					});
