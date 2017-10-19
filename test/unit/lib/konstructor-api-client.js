@@ -4,7 +4,6 @@ const assert = require('proclaim');
 const mockery = require('mockery');
 const pkg = require('../../../package.json');
 const sinon = require('sinon');
-require('sinon-as-promised');
 
 describe('lib/konstructor-api-client', () => {
 	let KonstructorApiClient;
@@ -130,17 +129,15 @@ describe('lib/konstructor-api-client', () => {
 				describe('when the request method is POST', () => {
 
 					beforeEach(() => {
-						request.reset();
+						request.resetHistory();
 						options.method = 'POST';
 						returnedPromise = instance.request('/foo/bar', options);
 					});
 
 					describe('.then()', () => {
 
-						beforeEach(done => {
-							returnedPromise.then(() => {
-								done();
-							}).catch(done);
+						beforeEach(() => {
+							return returnedPromise;
 						});
 
 						it('should send a Content-Type header of `application/x-www-form-urlencoded`', () => {

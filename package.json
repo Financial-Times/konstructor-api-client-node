@@ -8,19 +8,18 @@
     "konstructor": "bin/konstructor.js"
   },
   "dependencies": {
-    "chalk": "^1",
+    "chalk": "^2",
     "commander": "^2",
-    "node.extend": "^1",
+    "node.extend": "^2",
     "request": "^2"
   },
   "devDependencies": {
-    "eslint": "^2",
-    "istanbul": "~0.4",
-    "mocha": "^2",
-    "mockery": "^1",
+    "eslint": "^4",
+    "istanbul": "^0.4",
+    "mocha": "^4",
+    "mockery": "^2",
     "proclaim": "^3",
-    "sinon": "^1",
-    "sinon-as-promised": "^4"
+    "sinon": "^4"
   },
   "engines": {
     "node": ">=4"
