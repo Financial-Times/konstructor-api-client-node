@@ -3,7 +3,17 @@ machine:
   node:
     version: 8
 
+dependencies:
+  pre:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
+
 test:
   override:
-    - npm run lint
-    - npm run test-coverage
+    - make ci
+
+deployment:
+  release:
+    tag: /v.*/
+    owner: Financial-Times
+    commands:
+      - make npm-publish
